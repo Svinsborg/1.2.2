@@ -2,6 +2,7 @@ package ru.hell.a122;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,15 +18,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Init();
+        init();
         int randome = (int) (Math.random()*100);
 
         TextView http = findViewById(R.id.link);
-        http.setText("http://myfile.org/"+ String.valueOf(randome));
+        String text = getString(R.string.wwwwAdres, randome);
+        http.setText(text);
     }
 
 
-    public void Init() {
+    public void init() {
         ImageView back = findViewById(R.id.imageBack);
         ImageView forward = findViewById(R.id.imageForward);
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
 
-                Toast.makeText(MainActivity.this, "Back", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(MainActivity.this, "Back", Toast.LENGTH_SHORT).show();*/
             }
         });
 
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Toast.makeText(MainActivity.this, "Forward", Toast.LENGTH_SHORT).show();
+
+                /*Toast.makeText(MainActivity.this, "Forward", Toast.LENGTH_SHORT).show();*/
             }
         });
     }
